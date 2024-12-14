@@ -1,13 +1,11 @@
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import islandScene from '../assets/3d/island.glb'
 import { a } from '@react-spring/three'
 
 const Island = (props) => {
-    const islandRef= useRef();
+  const islandRef = useRef()
+  const { nodes, materials } = useGLTF('/assets/3d/island.glb')
 
-  const { nodes, materials } = useGLTF(islandScene)
   return (
     <a.group ref={islandRef} {...props}>
       <mesh
@@ -23,11 +21,11 @@ const Island = (props) => {
         material={materials.PaletteMaterial001}
       />
       <mesh
-       geometry={nodes.polySurface947_tree1_0.geometry}
+        geometry={nodes.polySurface947_tree1_0.geometry}
         material={materials.PaletteMaterial001}
       />
       <mesh
-       geometry={nodes.polySurface948_tree_body_0.geometry}
+        geometry={nodes.polySurface948_tree_body_0.geometry}
         material={materials.PaletteMaterial001}
       />
       <mesh
@@ -42,5 +40,4 @@ const Island = (props) => {
   )
 }
 
-
-export default Island;
+export default Island
