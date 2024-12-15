@@ -5,7 +5,6 @@ import Loader from '../components/Loader'
 import Island from '../models/island'
 import { Plane, Sky } from '@react-three/drei'
 import Bird from '../models/Bird'
-import { is } from '@react-three/fiber/dist/declarations/src/core/utils'
 
 
 {/* <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
