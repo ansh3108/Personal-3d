@@ -15,7 +15,7 @@ const Island = ({ isRotating, setIsRotating, ...props}) => {
   const dampingFactor = 0.95;
 
   const handlePointerDown = (e) => {
-    e.stopPropogation();
+    e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
 
@@ -27,19 +27,26 @@ const Island = ({ isRotating, setIsRotating, ...props}) => {
   }
 
   const handlePointerUp = (e) => {
-    e.stopPropogation();
+    e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
-
   }
   
   const handlePointerMove = (e) => {
-    e.stopPropogation();
+    e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
 
     if(isRotating) {
-      handlePointerUp(e);
+      const clientX = event.touches ? 
+      event.touches[0].clientX 
+      : event.clientX;
+
+      const delta = (clientX - lastX.current) / viewport.width;
+
+      islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+      lastX.current = clientX;
+      rotationSpeed.current = delta * 0.01 * Math.PI;
     }
   }
 
