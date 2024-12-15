@@ -5,12 +5,12 @@ import Loader from '../components/Loader'
 import Island from '../models/island'
 import { Plane, Sky } from '@react-three/drei'
 import Bird from '../models/Bird'
-
+ 
 
 {/* <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
         POPUP
       </div> */}
-
+ 
 const Home = () => {
   const [ isRotating, setIsRotating ] = useState(false);
   
