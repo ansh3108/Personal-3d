@@ -10,10 +10,10 @@ import Bird from '../models/Bird'
 {/* <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
         POPUP
       </div> */}
- 
+
 const Home = () => {
   const [ isRotating, setIsRotating ] = useState(false);
-  
+  const [currentStage, setCurrentStage] = useState(1);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
@@ -66,13 +66,14 @@ const Home = () => {
               isRotating = { isRotating }
               rotation={[0, 20, 0]}
             />
-            <Sky />
+            <Sky isRotating={isRotating}/>
             <Island 
               position={islandPosition}
               scale={islandScale}
               rotation={islandRotation}
               isRotating={isRotating}
               setIsRotating={setIsRotating}
+              setCurrentStage={setCurrentStage}
             />
           </Suspense>        
       </Canvas>
