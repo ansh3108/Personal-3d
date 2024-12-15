@@ -1,9 +1,9 @@
 import React from 'react'
 
-const sky = () => {
+const Sky = () => {
   return (
-    <div>sky</div>
+    <mesh></mesh>
   )
 }
 
-export default sky
+export default Sky
