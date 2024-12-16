@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 const Contact = () => {
-
+  const formRef = useRef(null);
   const [form, setform] = useState({name: '', email: '', message: ''})
+  const [ isLoading, setIsLoading ] = useState(false);
 
   const handleChange = () => {};
+  const handleFocus = () => {};
+  const handleBlur = () => {};
+  const handleSubmit = () => {};
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
@@ -13,6 +17,7 @@ const Contact = () => {
 
           <form
           className="w-full flex flex-col gap-7 mt-14"
+          onSubmit={handleSubmit}
           >
             <label className="text-black-500 font-semibold">
               Name
@@ -20,11 +25,51 @@ const Contact = () => {
                 type="text"
                 name="name"
                 className="input"
-                placeholder="Ansh"
+                placeholder="Jane Doe"
                 required
-                value={}
+                value={form.name}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
               />
             </label>
+            <label className="text-black-500 font-semibold">
+              Name
+              <input 
+                type="email"
+                name="email"
+                className="input"
+                placeholder="jane.doe@example.com"
+                required
+                value={form.email}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </label>
+            <label className="text-black-500 font-semibold">
+              Your Message
+              <input 
+                name="message"
+                rows={4}
+                className="textarea"
+                placeholder="Let me know how I can help you!"
+                required
+                value={form.name}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </label>
+            <button
+              type="submit"
+              className="btn"
+              disabled={isLoading}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {isLoading ? 'Sending...' : 'Send Message'}
+            </button>
           </form>
 
       </div>
