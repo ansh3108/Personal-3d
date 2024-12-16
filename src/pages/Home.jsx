@@ -6,6 +6,7 @@ import Island from '../models/Island';
 import { Sky } from '@react-three/drei';
 import Plane from '../models/Plane';
 import Bird from '../models/Bird';
+import HomeInfo from '../components/HomeInfo';
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      {currentStage && <HomeInfo currentStage={currentStage}/>}
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? 'cursor-grabbing' : 'cursor-grab'
