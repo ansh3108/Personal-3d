@@ -24,11 +24,30 @@ const renderContent = {
     <InfoBox
       text="Love to make open source projects!"
       link="/about"
-      btnText="Learn More" // Fixed btnText
+      btnText="Learn More" 
     />
   ),
-  3: <h1>3</h1>,
-  4: <h1>4</h1>,
+  3: (
+    <div>
+      <p className="font-medium sm:text-xl text-center">
+        My Tech Stack 🚀
+      </p>
+      <ul className="list-disc mt-2 ml-8 text-gray-600">
+        <li>Blockchain: Solidity, Ethers.js</li>
+        <li>Frontend: React.js, TailwindCSS</li>
+        <li>Cybersecurity: Penetration Testing, Network Security</li>
+        <li>Version Control: Git, GitHub</li>
+      </ul>
+    </div>
+  ),  
+  
+  4: (
+    <InfoBox
+      text="Let's collaborate on open-source projects!"
+      link="/contact"
+      btnText="Get in Touch"
+    />
+  ),  
 };
 
 const HomeInfo = ({ currentStage }) => {
