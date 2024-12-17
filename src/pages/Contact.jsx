@@ -1,14 +1,39 @@
 import React, { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setform] = useState({name: '', email: '', message: ''})
   const [ isLoading, setIsLoading ] = useState(false);
 
-  const handleChange = () => {};
+  const handleChange = (e) => {
+    setform({ ...form, [e.target.name]: e.target.value })
+  };
+
   const handleFocus = () => {};
   const handleBlur = () => {};
-  const handleSubmit = () => {};
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    emailjs.sendForm(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: "Ansh",
+        from_email: form.email,
+        to_email: 'itz.anshkumar@gmail.com',
+        message: form.message
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    ).then(() => {
+      setIsLoading(false);
+    }).catch((error) => {
+      
+    })
+  };
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
@@ -79,6 +104,3 @@ const Contact = () => {
 
 export default Contact
 
-
-
-            
